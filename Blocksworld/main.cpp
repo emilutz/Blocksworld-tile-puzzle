@@ -6,25 +6,29 @@
 #include "State.h"
 #include "SearchAlgorithm.h"
 #include "DepthFirstSearch.h"
+#include "BreadthFirstSearch.h"
 
 
 int main()
 {
 	std::vector<int> blocksRstart = { 3, 3, 3 };
 	std::vector<int> blocksCstart = { 0, 1, 2 };
-	State* startState = new State(4, 4, 3, 3, blocksRstart, blocksCstart);
+	State* startState = new State(NULL, 4, 4, 3, 3, blocksRstart, blocksCstart);
 
 	std::cout << "Start state" << std::endl;
 	startState->display();
 
-	std::vector<int> blocksRgoal = { 1, 2, 3 };
-	std::vector<int> blocksCgoal = { 1, 1, 1 };
-	State* goalState = new State(4, 4, 3, 2, blocksRgoal, blocksCgoal);
+	std::vector<int> blocksRgoal = { 3, 2, 3 };
+	std::vector<int> blocksCgoal = { 0, 1, 1 };
+	State* goalState = new State(NULL, 4, 4, 3, 3, blocksRgoal, blocksCgoal);
 
 	std::cout << "Goal state" << std::endl;
 	goalState->display();
 
-	DepthFirstSearch* searchAlgorithm = new DepthFirstSearch(startState, goalState, true);
+
+	//DepthFirstSearch* searchAlgorithm = new DepthFirstSearch(startState, goalState, true);
+
+	BreadthFirstSearch* searchAlgorithm = new BreadthFirstSearch(startState, goalState, false);
 
 	try
 	{

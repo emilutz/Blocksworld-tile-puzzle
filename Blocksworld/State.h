@@ -14,9 +14,10 @@ private:
 	int height, width;
 	int heroR, heroC;
 	char** board;
+	State* previousState;
 public:
-	State(int height, int width, int heroX, int heroY, std::vector<int> blocksX, std::vector<int> blocksY);
-	State(const State &s);
+	State(State* father, int height, int width, int heroX, int heroY, std::vector<int> blocksX, std::vector<int> blocksY);
+	State(State* s);
 	~State();
 	bool equalTo(const State &s);
 	void display();

@@ -1,13 +1,14 @@
 #include "State.h"
 
 
-State::State(int h, int w, int hR, int hC, std::vector<int> blocksR, std::vector<int> blocksC)
+State::State(State* father, int h, int w, int hR, int hC, std::vector<int> blocksR, std::vector<int> blocksC)
 {
 	// set local variables
 	height = h;
 	width = w;
 	heroR = hR;
 	heroC = hC;
+	previousState = father;
 
 	// allocate memory for the board
 	board = new char*[height];
@@ -33,13 +34,14 @@ State::State(int h, int w, int hR, int hC, std::vector<int> blocksR, std::vector
 	}
 }
 
-State::State(const State &s)
+State::State(State* s)
 {
 	// set local variables
-	height = s.height;
-	width = s.width;
-	heroR = s.heroR;
-	heroC = s.heroC;
+	height = s->height;
+	width = s->width;
+	heroR = s->heroR;
+	heroC = s->heroC;
+	previousState = s;
 
 	// allocate memory for the board
 	board = new char*[height];
@@ -53,7 +55,7 @@ State::State(const State &s)
 	{
 		for (int c = 0; c < width; c++)
 		{
-			board[r][c] = s.board[r][c];
+			board[r][c] = s->board[r][c];
 		}
 	}
 }

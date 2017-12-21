@@ -18,7 +18,7 @@ int myrandom(int i)
 	return std::rand() % i; 
 }
 
-std::vector<State*> SearchAlgorithm::expandStates(State * state, bool randomly)
+std::vector<State*> SearchAlgorithm::expandStates(State* state, bool randomly)
 {
 	// create indexes for the directions of hero movement
 	std::vector<int> indexes;
@@ -38,7 +38,7 @@ std::vector<State*> SearchAlgorithm::expandStates(State * state, bool randomly)
 	std::vector<State*> newStates;
 	for (int i = 0; i < 4; i++)
 	{
-		State* newState = new State(*state);
+		State* newState = new State(state);
 		bool canMove = false;
 
 		switch (indexes[i])

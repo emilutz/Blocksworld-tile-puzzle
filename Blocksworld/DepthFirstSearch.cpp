@@ -3,7 +3,6 @@
 
 DepthFirstSearch::~DepthFirstSearch()
 {
-	delete &fringe;
 	std::cout << "Depth First Search is over" << std::endl;
 }
 
