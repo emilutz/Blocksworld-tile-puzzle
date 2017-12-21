@@ -1,4 +1,4 @@
 ﻿  main.cpp
-d:\uni\foundations of ai\blocksworld-tile-puzzle\blocksworld\main.cpp(37): warning C4101: 'ba': unreferenced local variable
-  Blocksworld.vcxproj -> D:\Uni\Foundations of AI\Blocksworld-tile-puzzle\Blocksworld\Debug\Blocksworld.exe
-  Blocksworld.vcxproj -> D:\Uni\Foundations of AI\Blocksworld-tile-puzzle\Blocksworld\Debug\Blocksworld.pdb (Partial PDB)
+\\filestore.soton.ac.uk\users\ebc1u17\mydocuments\ai\blocksworld-tile-puzzle\blocksworld\main.cpp(46): warning C4101: 'ba': unreferenced local variable
+  Blocksworld.vcxproj -> \\filestore.soton.ac.uk\users\ebc1u17\mydocuments\AI\Blocksworld-tile-puzzle\Blocksworld\Debug\Blocksworld.exe
+  Blocksworld.vcxproj -> \\filestore.soton.ac.uk\users\ebc1u17\mydocuments\AI\Blocksworld-tile-puzzle\Blocksworld\Debug\Blocksworld.pdb (Partial PDB)

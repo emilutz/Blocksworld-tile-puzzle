@@ -14,6 +14,7 @@ void BreadthFirstSearch::solve()
 
 	// traverse the tree in DFS way
 	int nodesExpanded = 0;
+	int depthReached = 0;
 	while (true)
 	{
 		// fringe is somwhow empty
@@ -34,6 +35,8 @@ void BreadthFirstSearch::solve()
 		if (currentState->equalTo(*goalState))
 		{
 			std::cout << "Reached goal stated !" << std::endl;
+			std::cout << "State Trace :" << std::endl << std::endl;
+			depthReached = currentState->printStateTrace();
 			break;
 		}
 		nodesExpanded++;
@@ -45,9 +48,7 @@ void BreadthFirstSearch::solve()
 			fringe.push(newStates[i]);
 		}
 
-		// release the current state from memory
-		delete currentState;
-
+		// print state from time to time
 		if (nodesExpanded % 10000 == 0)
 		{
 			std::cout << "Expanded " << nodesExpanded << "..." << std::endl;
@@ -55,4 +56,5 @@ void BreadthFirstSearch::solve()
 	}
 
 	std::cout << "Node expansions : " << nodesExpanded << std::endl;
+	std::cout << "Depth reached : " << depthReached << std::endl;
 }

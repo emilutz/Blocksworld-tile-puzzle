@@ -70,6 +70,31 @@ State::~State()
 }
 
 
+// print the sequence of states from the start until the goal
+int State::printStateTrace()
+{
+	std::stack<State*> trace;
+	State* currentState = this;
+
+	// stack the states backwards
+	while (currentState != NULL)
+	{
+		trace.push(currentState);
+		currentState = currentState->previousState;
+	}
+
+	int depth = trace.size() - 1;
+
+	// display the states in their original order
+	while (!trace.empty())
+	{
+		trace.top()->display();
+		trace.pop();
+	}
+
+	return depth;
+}
+
 // check equality between states
 bool State::equalTo(const State &s)
 {

@@ -4,6 +4,7 @@
 #include <ctime>
 #include <cstdlib>
 #include <algorithm> 
+
 #include "State.h"
 
 class SearchAlgorithm

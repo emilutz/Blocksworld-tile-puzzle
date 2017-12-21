@@ -3,6 +3,7 @@
 #include "stdlib.h"
 #include "iostream"
 #include <vector>
+#include <stack>
 
 #define BLANK 32
 #define HERO 254
@@ -21,6 +22,7 @@ public:
 	~State();
 	bool equalTo(const State &s);
 	void display();
+	int printStateTrace();
 	bool moveUp();
 	bool moveDown();
 	bool moveLeft();

@@ -9,6 +9,7 @@
 #include "BreadthFirstSearch.h"
 
 
+
 int main()
 {
 	std::vector<int> blocksRstart = { 3, 3, 3 };
@@ -18,8 +19,8 @@ int main()
 	std::cout << "Start state" << std::endl;
 	startState->display();
 
-	std::vector<int> blocksRgoal = { 3, 2, 3 };
-	std::vector<int> blocksCgoal = { 0, 1, 1 };
+	std::vector<int> blocksRgoal = { 2, 2, 2 };
+	std::vector<int> blocksCgoal = { 0, 1, 2 };
 	State* goalState = new State(NULL, 4, 4, 3, 3, blocksRgoal, blocksCgoal);
 
 	std::cout << "Goal state" << std::endl;
@@ -30,6 +31,14 @@ int main()
 
 	BreadthFirstSearch* searchAlgorithm = new BreadthFirstSearch(startState, goalState, false);
 
+	std::cout << "Are you ready ?" << std::endl;
+	_getch();
+
+	std::cout << "I said: ARE YOU REAAAAADYYYYYY ?" << std::endl;
+	_getch();
+
+	std::cout << "Pame !" << std::endl;
+
 	try
 	{
 		searchAlgorithm->solve();
@@ -38,7 +47,7 @@ int main()
 	{
 		std::cout << "Ran out of memory :(" << std::endl;
 	}
-
+	
 	_getch();
 	return 0;
 }
