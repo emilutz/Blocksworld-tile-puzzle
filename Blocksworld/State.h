@@ -1,3 +1,5 @@
+#pragma once
+
 #include "stdlib.h"
 #include "iostream"
 #include <vector>
@@ -15,10 +17,11 @@ private:
 public:
 	State(int height, int width, int heroX, int heroY, std::vector<int> blocksX, std::vector<int> blocksY);
 	State(const State &s);
-	bool equal_to(const State &s);
+	~State();
+	bool equalTo(const State &s);
 	void display();
-	void moveUp();
-	void moveDown();
-	void moveLeft();
-	void moveRight();
+	bool moveUp();
+	bool moveDown();
+	bool moveLeft();
+	bool moveRight();
 };

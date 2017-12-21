@@ -1,7 +1,2 @@
-﻿  main.cpp
-  State.cpp
-d:\uni\foundations of ai\blocksworld-tile-puzzle\blocksworld\state.cpp(29): warning C4309: '=': truncation of constant value
-d:\uni\foundations of ai\blocksworld-tile-puzzle\blocksworld\state.cpp(30): warning C4018: '<': signed/unsigned mismatch
-  Generating Code...
-  Blocksworld.vcxproj -> D:\Uni\Foundations of AI\Blocksworld-tile-puzzle\Blocksworld\Debug\Blocksworld.exe
+﻿  Blocksworld.vcxproj -> D:\Uni\Foundations of AI\Blocksworld-tile-puzzle\Blocksworld\Debug\Blocksworld.exe
   Blocksworld.vcxproj -> D:\Uni\Foundations of AI\Blocksworld-tile-puzzle\Blocksworld\Debug\Blocksworld.pdb (Partial PDB)

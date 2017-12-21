@@ -58,9 +58,18 @@ State::State(const State &s)
 	}
 }
 
+State::~State()
+{
+	for (int r = 0; r < height; r++)
+	{
+		delete[] board[r];
+	}
+	delete[] board;
+}
+
 
 // check equality between states
-bool State::equal_to(const State & s)
+bool State::equalTo(const State &s)
 {
 	// test dimensions
 	if (height != s.height || width != s.width)
@@ -75,7 +84,11 @@ bool State::equal_to(const State & s)
 		{
 			if (board[r][c] != s.board[r][c])
 			{
-				return false;
+				if((board[r][c] != (char)BLANK && board[r][c] != (char)HERO) ||
+					(s.board[r][c] != (char)BLANK && s.board[r][c] != (char)HERO))
+				{ 
+					return false;
+				}
 			}
 		}
 	}
@@ -126,7 +139,7 @@ void State::display()
 }
 
 
-void State::moveUp()
+bool State::moveUp()
 {
 	if (heroR > 0)
 	{
@@ -134,10 +147,15 @@ void State::moveUp()
 		board[heroR][heroC] = board[heroR - 1][heroC];
 		board[heroR - 1][heroC] = swapper;
 		heroR--;
+		return true;
+	}
+	else
+	{
+		return false;
 	}
 }
 
-void State::moveDown()
+bool State::moveDown()
 {
 	if (heroR < height - 1)
 	{
@@ -145,10 +163,15 @@ void State::moveDown()
 		board[heroR][heroC] = board[heroR + 1][heroC];
 		board[heroR + 1][heroC] = swapper;
 		heroR++;
+		return true;
+	}
+	else
+	{
+		return false;
 	}
 }
 
-void State::moveLeft()
+bool State::moveLeft()
 {
 	if (heroC > 0)
 	{
@@ -156,10 +179,15 @@ void State::moveLeft()
 		board[heroR][heroC] = board[heroR][heroC - 1];
 		board[heroR][heroC - 1] = swapper;
 		heroC--;
+		return true;
+	}
+	else
+	{
+		return false;
 	}
 }
 
-void State::moveRight()
+bool State::moveRight()
 {
 	if (heroC < width - 1)
 	{
@@ -167,5 +195,10 @@ void State::moveRight()
 		board[heroR][heroC] = board[heroR][heroC + 1];
 		board[heroR][heroC + 1] = swapper;
 		heroC++;
+		return true;
+	}
+	else
+	{
+		return false;
 	}
 }
