@@ -7,20 +7,20 @@
 
 #define BLANK 32
 #define HERO 254
-#define ASCII_OFFSET 65
 
 class State
 {
-private:
+protected:
 	int height, width;
 	int heroR, heroC;
 	char** board;
 	State* previousState;
 public:
-	State(State* father, int height, int width, int heroX, int heroY, std::vector<int> blocksX, std::vector<int> blocksY);
+	State(State* father, int height, int width, char** stateMatrix);
 	State(State* s);
 	~State();
 	bool equalTo(const State &s);
+	bool equalToStrongly(const State &s);
 	void display();
 	int printStateTrace();
 	bool moveUp();

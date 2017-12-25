@@ -1,0 +1,15 @@
+﻿  State.cpp
+d:\uni\foundations of ai\blocksworld-tile-puzzle\blocksworld\state.cpp(29): warning C4309: '=': truncation of constant value
+d:\uni\foundations of ai\blocksworld-tile-puzzle\blocksworld\state.cpp(91): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+  StarState.cpp
+  BlindSearchAlgorithm.cpp
+  main.cpp
+d:\uni\foundations of ai\blocksworld-tile-puzzle\blocksworld\main.cpp(133): warning C4101: 'ba': unreferenced local variable
+d:\uni\foundations of ai\blocksworld-tile-puzzle\blocksworld\main.cpp(208): warning C4101: 'ba': unreferenced local variable
+  IterativeDeepeningSearch.cpp
+  DepthFirstSearch.cpp
+  BreadthFirstSearch.cpp
+  AStarSearch.cpp
+  Generating Code...
+  Blocksworld.vcxproj -> D:\Uni\Foundations of AI\Blocksworld-tile-puzzle\Blocksworld\x64\Debug\Blocksworld.exe
+  Blocksworld.vcxproj -> D:\Uni\Foundations of AI\Blocksworld-tile-puzzle\Blocksworld\x64\Debug\Blocksworld.pdb (Partial PDB)

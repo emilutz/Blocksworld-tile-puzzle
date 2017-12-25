@@ -1,13 +1,11 @@
 #include "State.h"
 
 
-State::State(State* father, int h, int w, int hR, int hC, std::vector<int> blocksR, std::vector<int> blocksC)
+State::State(State* father, int h, int w, char** stateMatrix)
 {
 	// set local variables
 	height = h;
 	width = w;
-	heroR = hR;
-	heroC = hC;
 	previousState = father;
 
 	// allocate memory for the board
@@ -17,21 +15,28 @@ State::State(State* father, int h, int w, int hR, int hC, std::vector<int> block
 		board[r] = new char[width];
 	}
 
-	// initialize the board with empty spots
+	// construct the board from the input matrix
 	for (int r = 0; r < height; r++)
 	{
 		for (int c = 0; c < width; c++)
 		{
-			board[r][c] = BLANK;
+			switch (stateMatrix[r][c])
+			{
+			case '0':
+				board[r][c] = BLANK;
+				break;
+			case '*':
+				board[r][c] = HERO;
+				heroR = r;
+				heroC = c;
+				break;
+			default:
+				board[r][c] = stateMatrix[r][c];
+				break;
+			}
 		}
 	}
 
-	// assign the hero and the blocks positions
-	board[heroR][heroC] = HERO;
-	for (int i = 0; i < blocksR.size(); i++)
-	{
-		board[blocksR.at(i)][blocksC.at(i)] = i + ASCII_OFFSET;
-	}
 }
 
 State::State(State* s)
@@ -120,6 +125,31 @@ bool State::equalTo(const State &s)
 		}
 	}
 	
+	return true;
+}
+
+
+// check strong equality between states
+bool State::equalToStrongly(const State &s)
+{
+	// test dimensions
+	if (height != s.height || width != s.width)
+	{
+		return false;
+	}
+
+	// test board contents
+	for (int r = 0; r < height; r++)
+	{
+		for (int c = 0; c < width; c++)
+		{
+			if (board[r][c] != s.board[r][c])
+			{
+				return false;
+			}
+		}
+	}
+
 	return true;
 }
 

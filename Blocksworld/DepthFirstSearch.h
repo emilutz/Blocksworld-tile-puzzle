@@ -3,18 +3,18 @@
 #include "iostream"
 #include <stack>
 
-#include "SearchAlgorithm.h"
+#include "BlindSearchAlgorithm.h"
 
-class DepthFirstSearch : public SearchAlgorithm 
+class DepthFirstSearch : public BlindSearchAlgorithm 
 {
 public:
-	DepthFirstSearch(State* s, State *g, bool re) : SearchAlgorithm(s, g)
+	DepthFirstSearch(State* s, State *g, bool re) : BlindSearchAlgorithm(s, g)
 	{
 		randomExpansion = re;
 		std::cout << "Depth First Search initialized" << std::endl;
 	}
 	~DepthFirstSearch();
-	void solve();
+	void solve(bool graphMode);
 private:
 	bool randomExpansion;
 	std::stack<State*> fringe;

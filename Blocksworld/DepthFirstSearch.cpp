@@ -7,21 +7,25 @@ DepthFirstSearch::~DepthFirstSearch()
 }
 
 
-void DepthFirstSearch::solve()
+void DepthFirstSearch::solve(bool graphMode)
 {
 	// initialize the fringe
 	fringe.push(startState);
+
+	// clear visited nodes (for graph mode only)
+	visited.clear();
+	visited.push_back(startState);
 
 	// traverse the tree in DFS way
 	int nodesExpanded = 0;
 	int depthReached = 0;
 	while (true)
 	{
-		// fringe is somwhow empty
+		// fringe is somewhow empty
 		if (fringe.empty())
 		{
 			std::cout << "No solution found !" << std::endl;
-			break;
+			return;
 		}
 
 		// pop the next state
@@ -42,7 +46,7 @@ void DepthFirstSearch::solve()
 		nodesExpanded++;
 
 		// expand the current state
-		std::vector<State*> newStates = expandStates(currentState, randomExpansion);
+		std::vector<State*> newStates = expandStates(currentState, randomExpansion, graphMode);
 		for (int i = 0; i < newStates.size(); i++)
 		{
 			fringe.push(newStates[i]);
@@ -52,6 +56,13 @@ void DepthFirstSearch::solve()
 		if (nodesExpanded % 10000 == 0)
 		{
 			std::cout << "Expanded " << nodesExpanded << "..." << std::endl;
+		}
+
+		// expansion limit
+		if (nodesExpanded >= BLIND_EXPANSION_LIMIT)
+		{
+			std::cout << "Expansion limit reached" << std::endl;
+			return;
 		}
 	}
 

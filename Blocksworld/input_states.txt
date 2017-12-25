@@ -1,0 +1,9 @@
+3 3
+--- Start State---
+0 0 0
+0 * 0 
+A B C 
+--- Goal  State---
+0 0 A
+0 B 0 
+C 0 * 
